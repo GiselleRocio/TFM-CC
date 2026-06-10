@@ -1,0 +1,50 @@
+.root {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.ring {
+  border-radius: var(--radius-full);
+  border-style: solid;
+  border-color: var(--color-border-subtle);
+  border-top-color: var(--color-teal);
+  animation: spin 400ms linear infinite;
+  flex-shrink: 0;
+}
+
+/* ---- Sizes ---- */
+
+.sm {
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+}
+
+.md {
+  width: 32px;
+  height: 32px;
+  border-width: 3px;
+}
+
+.lg {
+  width: 48px;
+  height: 48px;
+  border-width: 4px;
+}
+
+/* ---- Optional label below ---- */
+
+.label {
+  font-size: var(--font-size-caption);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-caption);
+  text-align: center;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

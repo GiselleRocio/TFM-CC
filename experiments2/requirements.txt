@@ -1,0 +1,9 @@
+# Dependencies for experiments2 (on top of root requirements.txt)
+jupyterlab>=4.0
+matplotlib>=3.8
+seaborn>=0.13
+scipy>=1.11
+pandas>=2.1
+tqdm>=4.66
+gurobipy>=11.0
+openpyxl>=3.1

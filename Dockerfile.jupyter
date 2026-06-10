@@ -1,0 +1,21 @@
+FROM python:3.12-slim
+
+WORKDIR /app
+
+# Install core deps first (layer cache)
+COPY requirements.txt .
+COPY experiments2/requirements.txt experiments2/requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r experiments2/requirements.txt
+
+# Copy full repo (overridden at runtime by the volume mount)
+COPY . .
+
+EXPOSE 8888
+
+CMD ["jupyter", "lab", \
+     "--ip=0.0.0.0", \
+     "--port=8888", \
+     "--no-browser", \
+     "--allow-root", \
+     "--notebook-dir=/app"]

@@ -1,0 +1,209 @@
+/* Semantic error red for the penalty hierarchy — not a brand color */
+.root {
+  --_fail-color: #e24b4a;
+}
+
+/* ---- Layout ---- */
+
+.root {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.sectionTitle {
+  font-size: var(--font-size-nav);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-nav);
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+/* ---- Top KPIs ---- */
+
+.topKpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+@media (max-width: 900px) {
+  .topKpis {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.topKpi {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4);
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.topKpiValue {
+  font-size: 1.375rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+.topKpiLabel {
+  font-size: var(--font-size-caption);
+  letter-spacing: var(--tracking-caption);
+  color: var(--color-text-tertiary);
+}
+
+/* ---- Table section ---- */
+
+.tableSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.tableTitle {
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-nav);
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+.tableWrap {
+  overflow-x: auto;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-caption);
+}
+
+.thead {
+  background: var(--color-bg-tertiary);
+}
+
+.th {
+  padding: var(--space-2) var(--space-4);
+  text-align: left;
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-nav);
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  border-bottom: 1px solid var(--color-border-subtle);
+  white-space: nowrap;
+}
+
+.thNum {
+  text-align: right;
+}
+
+.tr:last-child .td {
+  border-bottom: none;
+}
+
+.td {
+  padding: var(--space-2) var(--space-4);
+  border-bottom: 1px solid var(--color-border-subtle);
+  color: var(--color-text-secondary);
+  vertical-align: middle;
+}
+
+.tdPenalty {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  font-family: var(--font-mono);
+}
+
+.tdFormula {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-tertiary);
+}
+
+.tdNum {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.checkPass {
+  color: var(--color-teal);
+  font-weight: var(--font-weight-medium);
+}
+
+.checkFail {
+  color: var(--_fail-color);
+  font-weight: var(--font-weight-medium);
+}
+
+.baseline {
+  color: var(--color-text-tertiary);
+}
+
+.tableCaption {
+  font-size: var(--font-size-caption);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-caption);
+  font-family: var(--font-mono);
+}
+
+/* ---- Run information ---- */
+
+.runInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.runGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.infoRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-1) 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.infoRow:last-child {
+  border-bottom: none;
+}
+
+.infoLabel {
+  font-size: var(--font-size-caption);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-caption);
+}
+
+.infoValue {
+  font-size: var(--font-size-caption);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-medium);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.samplerText {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-teal);
+  letter-spacing: 0;
+}

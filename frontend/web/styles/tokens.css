@@ -1,0 +1,222 @@
+:root {
+  /* --- Colores base --- */
+  --color-bg-primary: #0a0a0a;
+  --color-bg-secondary: #0d1f2d;
+  --color-bg-tertiary: #0e2a3f;
+
+  /* --- Acento --- */
+  --color-teal: #00c4b4;
+  --color-teal-dark: #00a89a;
+  --color-teal-muted: #00756b;
+
+  /* --- Texto --- */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: rgba(255, 255, 255, 0.55);
+  --color-text-tertiary: rgba(255, 255, 255, 0.35);
+  --color-text-accent: #00c4b4;
+
+  /* --- Bordes --- */
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-border-medium: rgba(255, 255, 255, 0.2);
+  --color-border-strong: rgba(255, 255, 255, 0.4);
+
+  /* --- Gradientes --- */
+  --gradient-phase: linear-gradient(135deg, #00756b, #0e2a3f);
+  --gradient-hero-overlay: linear-gradient(
+    to bottom,
+    rgba(10, 10, 10, 0.6),
+    rgba(10, 10, 10, 0.95)
+  );
+
+  /* --- Tipografía --- */
+  --font-sans:
+    var(--font-outfit), "Neue Haas Grotesk", "Aktiv Grotesk", sans-serif;
+  --font-mono: var(--font-mono), "Cascadia Code", "Fira Code", monospace;
+
+  --font-size-hero: clamp(48px, 8vw, 80px);
+  --font-size-heading-xl: clamp(32px, 5vw, 48px);
+  --font-size-heading-l: clamp(24px, 3vw, 32px);
+  --font-size-heading-m: clamp(18px, 2.5vw, 24px);
+  --font-size-body: 16px;
+  --font-size-nav: 13px;
+  --font-size-caption: 12px;
+
+  --font-weight-black: 800;
+  --font-weight-bold: 700;
+  --font-weight-medium: 500;
+  --font-weight-regular: 400;
+
+  --tracking-hero: -0.03em;
+  --tracking-heading: -0.01em;
+  --tracking-nav: 0.08em;
+  --tracking-caption: 0.02em;
+
+  --leading-hero: 1;
+  --leading-heading: 1.15;
+  --leading-body: 1.65;
+
+  /* --- Espaciado --- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* --- Bordes radio --- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* --- Sombras / Glow --- */
+  --glow-teal:
+    0 0 24px rgba(0, 196, 180, 0.28), 0 0 8px rgba(0, 196, 180, 0.15);
+  --glow-teal-strong:
+    0 0 40px rgba(0, 196, 180, 0.45), 0 0 16px rgba(0, 196, 180, 0.25);
+  --glow-teal-ring:
+    0 0 0 4px rgba(0, 196, 180, 0.18), 0 0 20px rgba(0, 196, 180, 0.22);
+
+  /* --- Transiciones --- */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+
+  /* --- Layout --- */
+  --container-max: 1280px;
+  --container-pad: clamp(20px, 5vw, 80px);
+  --navbar-height: 64px;
+}
+
+/* ============================================================
+   Clases utilitarias base
+   ============================================================ */
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+  line-height: var(--leading-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+/* Secciones */
+.section-dark {
+  background: var(--color-bg-primary);
+}
+.section-mid {
+  background: var(--color-bg-secondary);
+}
+.section-card {
+  background: var(--color-bg-tertiary);
+}
+
+/* Texto */
+.text-accent {
+  color: var(--color-teal);
+}
+.text-muted {
+  color: var(--color-text-secondary);
+}
+.text-subtle {
+  color: var(--color-text-tertiary);
+}
+
+/* Tipografía display */
+.text-hero {
+  font-size: var(--font-size-hero);
+  font-weight: var(--font-weight-black);
+  letter-spacing: var(--tracking-hero);
+  line-height: var(--leading-hero);
+}
+
+.text-heading-xl {
+  font-size: var(--font-size-heading-xl);
+  font-weight: var(--font-weight-black);
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--leading-heading);
+}
+
+/* Botones */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-nav);
+  letter-spacing: var(--tracking-nav);
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  padding: 12px 28px;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  border: none;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--color-teal);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--color-teal-dark);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-text-primary);
+  border: 1.5px solid var(--color-border-medium);
+}
+.btn-ghost:hover {
+  border-color: var(--color-border-strong);
+}
+
+.btn-ghost-teal {
+  background: transparent;
+  color: var(--color-teal);
+  border: 1.5px solid var(--color-teal);
+}
+.btn-ghost-teal:hover {
+  background: rgba(0, 196, 180, 0.1);
+}
+
+/* Cards */
+.card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border-subtle);
+}
+.card-header {
+  background: var(--color-bg-tertiary);
+  padding: var(--space-6);
+}
+.card-body {
+  background: var(--color-bg-primary);
+  padding: var(--space-5);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.card-phase {
+  border-radius: var(--radius-lg);
+  background: var(--gradient-phase);
+  padding: var(--space-6);
+}
+
+/* Divisores */
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-border-subtle);
+}

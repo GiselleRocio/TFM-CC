@@ -1,0 +1,75 @@
+/*
+  Semantic status colours are defined here as local custom properties.
+  Success maps to the brand teal. Warning and error are operational
+  colours not present in the global token system — defined once here,
+  not scattered across the codebase.
+*/
+.badge {
+  --_success-color: var(--color-teal);
+  --_success-bg: color-mix(in srgb, var(--color-teal) 12%, transparent);
+  --_success-border: color-mix(in srgb, var(--color-teal) 30%, transparent);
+
+  /* Operational amber — urgency / partial state */
+  --_warning-color: #e8a020;
+  --_warning-bg: color-mix(in srgb, #e8a020 12%, transparent);
+  --_warning-border: color-mix(in srgb, #e8a020 30%, transparent);
+
+  /* Operational red — tardy / error (matches Gantt #E24B4A) */
+  --_error-color: #e24b4a;
+  --_error-bg: color-mix(in srgb, #e24b4a 12%, transparent);
+  --_error-border: color-mix(in srgb, #e24b4a 30%, transparent);
+
+  --_neutral-color: var(--color-text-secondary);
+  --_neutral-bg: color-mix(in srgb, var(--color-text-primary) 6%, transparent);
+  --_neutral-border: var(--color-border-subtle);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid;
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-caption);
+  white-space: nowrap;
+  line-height: 1.6;
+}
+
+/* ---- Variants ---- */
+
+.success {
+  color: var(--_success-color);
+  background: var(--_success-bg);
+  border-color: var(--_success-border);
+}
+
+.warning {
+  color: var(--_warning-color);
+  background: var(--_warning-bg);
+  border-color: var(--_warning-border);
+}
+
+.error {
+  color: var(--_error-color);
+  background: var(--_error-bg);
+  border-color: var(--_error-border);
+}
+
+.neutral {
+  color: var(--_neutral-color);
+  background: var(--_neutral-bg);
+  border-color: var(--_neutral-border);
+}
+
+/* ---- Dot indicator ---- */
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+  background: currentColor;
+}

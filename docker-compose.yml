@@ -1,0 +1,59 @@
+services:
+  # ── FastAPI backend — consumed by the Next.js frontend ──────
+  api:
+    build: .
+    command: uvicorn src.api:app --host 0.0.0.0 --port 8000 --reload
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/app
+    env_file: .env
+    working_dir: /app
+    networks:
+      - tfm-network
+
+  # ── Next.js admin panel ─────────────────────────────────────
+  web:
+    image: node:20-alpine
+    working_dir: /app
+    command: sh -c "npm install && npm run dev"
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend/web:/app
+      - /app/node_modules # anonymous volume — preserves container node_modules
+      - /app/.next # anonymous volume — preserves .next build cache
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - WATCHPACK_POLLING=true # necesario en Windows para que Next detecte cambios
+    depends_on:
+      - api
+    networks:
+      - tfm-network
+
+  # ── JupyterLab — thesis experiments (experiments/ & experiments2/) ────
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile.jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./:/app # live-reload notebooks and src/ changes
+    env_file: .env
+    working_dir: /app
+    command: |
+      jupyter lab
+      --ip=0.0.0.0
+      --port=8888
+      --no-browser
+      --allow-root
+      --notebook-dir=/app
+      --NotebookApp.token=''
+      --NotebookApp.password=''
+    networks:
+      - tfm-network
+
+networks:
+  tfm-network:
+    driver: bridge

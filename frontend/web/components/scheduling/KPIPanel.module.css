@@ -1,0 +1,89 @@
+.root {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  height: 100%;
+}
+
+.sectionTitle {
+  font-size: var(--font-size-nav);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-nav);
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+/* ---- Primary KPI (large display) ---- */
+
+.primaryKpi {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4) var(--space-5);
+  background: color-mix(in srgb, var(--color-teal) 6%, var(--color-bg-tertiary));
+  border: 1px solid color-mix(in srgb, var(--color-teal) 20%, transparent);
+  border-radius: var(--radius-md);
+}
+
+.primaryKpiLabel {
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-nav);
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+.primaryKpiValue {
+  font-size: 2rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-teal);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+/* ---- Divider ---- */
+
+.divider {
+  height: 1px;
+  background: var(--color-border-subtle);
+}
+
+/* ---- Secondary metric list ---- */
+
+.metricList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.metricRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.metricLabel {
+  font-size: var(--font-size-caption);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-caption);
+}
+
+.metricValue {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.metricValueAccent {
+  color: var(--color-teal);
+}
+
+.metricValueWarn {
+  color: #e24b4a;
+}
